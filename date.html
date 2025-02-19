@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Calculation</title>
+    <link rel="stylesheet" href="assets/kon_style.css" type="text/css" media="all" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="date"],
+    input[type="text"] {
+        width: 90%;
+        max-width: 300px;
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+
+    button {
+        width: 90%;
+        max-width: 320px;
+        padding: 10px;
+        background-color: #e68a00;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+    <!-- Tombol menu -->
+    <div id="menu-btn" onclick="toggleSidebar()">☰ Date Calculation</div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <a href="index.html" id="calculator-link"><i class="fa fa-calculator"></i>Calculator</a>
+        <a href="jarak.html" id="jarak-link"><i class="fa fa-random"></i>Konversi Jarak</a>
+        <a href="berat.html" id="berat-link"><i class="fa fa-balance-scale"></i>Konversi Berat</a>
+        <a href="volume.html" id="volume-link"><i class="fa fa-cube"></i>Konversi Volume</a>
+        <a href="date.html" id="date-link"><i class="fa fa-calendar"></i>Date Calculation</a>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">DATE CALCULATION</h2>
+        <form onsubmit="return false;">
+            <label style="margin-bottom: 10px;" for="startDate">Tanggal Awal:</label>
+            <input style="margin-bottom: 10px;" type="date" id="startDate" name="startDate" />
+            <br />
+
+            <label style="margin-bottom: 10px;" for="endDate">Tanggal Akhir:</label>
+            <input type="date" id="endDate" name="endDate" />
+            <br />
+
+            <button type="button" onclick="calculateDateDifference()">Hitung Selisih</button>
+            <br />
+
+            <label for="result">Hasil Perhitungan:</label>
+            <input type="text" id="result" readonly />
+        </form>
+    </div>
+
+    <script>
+        window.onload = function () {
+            // Menandai link aktif di sidebar
+            const currentPage = window.location.pathname;
+            const links = document.querySelectorAll('#sidebar a');
+
+            links.forEach(link => {
+                if (link.href.includes(currentPage)) {
+                    link.classList.add('active');  // Menambahkan class active pada link yang sesuai
+                } else {
+                    link.classList.remove('active');  // Menghapus class active dari link lain
+                }
+            });
+        };
+
+        // Fungsi untuk toggle sidebar saat tombol menu ditekan
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('sidebar-open');
+        }
+        
+        function calculateDateDifference() {
+            const startDate = new Date(document.getElementById("startDate").value);
+            const endDate = new Date(document.getElementById("endDate").value);
+
+            if (isNaN(startDate) || isNaN(endDate)) {
+                alert("Masukkan tanggal yang valid.");
+                return;
+            }
+
+            if (endDate < startDate) {
+                alert("Tanggal akhir harus setelah tanggal awal.");
+                return;
+            }
+
+            let years = endDate.getFullYear() - startDate.getFullYear();
+            let months = endDate.getMonth() - startDate.getMonth();
+            let days = endDate.getDate() - startDate.getDate();
+
+            if (days < 0) {
+                months -= 1;
+                days += new Date(startDate.getFullYear(), startDate.getMonth() + 1, 0).getDate();
+            }
+
+            if (months < 0) {
+                years -= 1;
+                months += 12;
+            }
+
+            const resultText = `${years} Tahun, ${months} Bulan, ${days} Hari`;
+            document.getElementById("result").value = resultText;
+        }
+    </script>
+</body>
+
+</html>

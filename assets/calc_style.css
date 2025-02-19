@@ -1,0 +1,196 @@
+body {
+    font-size: 2.5vh;
+    margin: 0;
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 1vh;
+}
+
+#calculator {
+    width: 90%;
+    max-width: 400px;
+    padding: 2vh;
+    border-radius: 15px;
+    background-color: #222;
+    text-align: center;
+}
+
+.box {
+    font-size: 3vh;
+    height: 5vh;
+    text-align: right;
+    padding: 1em;
+    border: 2px solid #e68a00;
+    color: white;
+    border-radius: 10px;
+    background-color: black;
+}
+
+#last_operation_history {
+    font-size: 1.8vh;
+    text-align: right;
+    color: rgb(177, 176, 176);
+}
+
+table {
+    width: 100%;
+    margin-top: 1vh;
+}
+
+td {
+    width: 25%;
+    padding: 0.5vh;
+}
+
+button {
+    width: 100%;
+    height: 7vh;
+    font-weight: bold;
+    font-size: 2.5vh;
+    color: white;
+    background-color: #666;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+#backspace_btn {
+    background-image: url("../assets/back_remove.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.7em;
+}
+
+button:hover {
+    background-color: #999;
+    cursor: pointer;
+}
+
+.operator {
+    background-color: #e68a00;
+}
+
+.operator:hover {
+    background-color: #ffd11a;
+}
+
+#equal_sign {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* History Container */
+#history-container {
+    width: 250px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    display: blox;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    max-height: 250px;
+}
+
+#history-container.show {
+    display: block;
+}
+
+#clear-history {
+    width: 100%;
+    padding: 5px;
+    background: red;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#clear-history:hover {
+    background: darkred;
+}
+  /* Sidebar Styling */
+  #menu-btn {
+    position: fixed;
+    top: 10px;    /* Pastikan tombol berada 10px dari atas */
+    left: 10px;   /* Pastikan tombol berada 10px dari kiri */
+    background: #000;   /* Background hitam */
+    color: white;
+    border: none;
+    padding: 8px 12px;   /* Padding kecil */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;      /* Ukuran font lebih kecil */
+    z-index: 1000;        /* Agar tombol tetap di atas konten lain */
+    width: auto;          /* Lebar otomatis sesuai konten */
+    margin: 0;            /* Pastikan tidak ada margin yang menyebabkan pergeseran */
+    font-weight: 700;
+}
+
+/* Sidebar Styling */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #222;    /* Warna latar belakang sidebar */
+    padding-top: 60px;    /* Padding di atas untuk memberi ruang pada tombol menu */
+    transition: 0.3s ease-in-out; /* Animasi transisi untuk membuka dan menutup sidebar */
+    box-shadow: 2px 0 10px rgba(255, 255, 255, 0.1); /* Efek bayangan */
+    overflow-y: auto;     /* Mengaktifkan scroll jika isi terlalu panjang */
+}
+/* Sidebar styling untuk ikon */
+#sidebar a i {
+    margin-right: 10px;  /* Memberikan jarak antara ikon dan teks */
+}
+
+/* Menandai elemen aktif di sidebar */
+#sidebar a.active {
+    background: #333;  /* Menambahkan warna latar belakang saat aktif */
+    color: #e68a00;     /* Warna teks saat aktif */
+}
+
+/* Gaya umum untuk link sidebar */
+#sidebar a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* Menambahkan efek hover */
+#sidebar a:hover {
+    background: #444;
+}
+
+/* Sidebar yang terbuka */
+.sidebar-open {
+    left: 0 !important;  /* Posisi sidebar saat dibuka */
+}
+
+/* Menambahkan background hitam ke sidebar jika diperlukan */
+#sidebar {
+    background-color: black; /* Pastikan sidebar memiliki latar belakang hitam */
+}

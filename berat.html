@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konversi Berat</title>
+    <link rel="stylesheet" href="assets/kon_style.css" type="text/css" media="all" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Tombol menu -->
+    <div id="menu-btn" onclick="toggleSidebar()">☰ Konversi Berat</div>
+ 
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <a href="index.html" id="calculator-link"><i class="fa fa-calculator"></i>Calculator</a>
+        <a href="jarak.html" id="jarak-link"><i class="fa fa-random"></i>Konversi Jarak</a>
+        <a href="berat.html" id="berat-link"><i class="fa fa-balance-scale"></i>Konversi Berat</a>
+        <a href="volume.html" id="volume-link"><i class="fa fa-cube"></i>Konversi Volume</a>
+        <a href="date.html" id="date-link"><i class="fa fa-calendar"></i>Date Calculation</a>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">KONVERSI BERAT</h2>
+        <form onsubmit="return false;">
+            <label for="weight">Masukkan Berat:</label>
+            <input type="number" id="weight" name="weight" placeholder="Masukkan angka" />
+            <br />
+            <div class="selects">
+                <div class="select-group">
+                    <label for="fromUnit">Dari :</label>
+                    <select id="fromUnit" name="fromUnit">
+                        <option value="kg">KG</option>
+                        <option value="hg">HG</option>
+                        <option value="dag">DAG</option>
+                        <option value="g">G</option>
+                        <option value="dg">DG</option>
+                        <option value="cg">CG</option>
+                        <option value="mg">MG</option>
+                    </select>
+                </div>
+                <div class="select-group">
+                    <label for="toUnit">Ke Satuan:</label>
+                    <select id="toUnit" name="toUnit">
+                        <option value="kg">KG</option>
+                        <option value="hg">HG</option>
+                        <option value="dag">DAG</option>
+                        <option value="g">G</option>
+                        <option value="dg">DG</option>
+                        <option value="cg">CG</option>
+                        <option value="mg">MG</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <button type="button" onclick="convertWeight()">Konversi</button>
+
+            <label for="result">Hasil Konversi:</label>
+            <input type="text" id="result" readonly />
+        </form>
+    </div>
+
+    <script>
+        window.onload = function () {
+            // Menandai link aktif di sidebar
+            const currentPage = window.location.pathname;
+            const links = document.querySelectorAll('#sidebar a');
+
+            links.forEach(link => {
+                if (link.href.includes(currentPage)) {
+                    link.classList.add('active');  // Menambahkan class active pada link yang sesuai
+                } else {
+                    link.classList.remove('active');  // Menghapus class active dari link lain
+                }
+            });
+        };
+
+        // Fungsi untuk toggle sidebar saat tombol menu ditekan
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('sidebar-open');
+        }
+
+        function convertWeight() {
+            const weight = parseFloat(document.getElementById("weight").value);
+            const fromUnit = document.getElementById("fromUnit").value.toLowerCase();
+            const toUnit = document.getElementById("toUnit").value.toLowerCase();
+
+            const units = {
+                kg: 1000,
+                hg: 100,
+                dag: 10,
+                g: 1,
+                dg: 0.1,
+                cg: 0.01,
+                mg: 0.001
+            };
+
+            if (isNaN(weight) || units[fromUnit] === undefined || units[toUnit] === undefined) {
+                alert("Masukan tidak valid.");
+            } else {
+                let convertedWeight = (weight * units[fromUnit]) / units[toUnit];
+
+                // Menyederhanakan hasil dengan menghapus nol yang tidak perlu
+                convertedWeight = parseFloat(convertedWeight.toFixed(5));
+
+                const resultText = `${weight} ${fromUnit.toUpperCase()} = ${convertedWeight} ${toUnit.toUpperCase()}`;
+                document.getElementById("result").value = resultText;
+            }
+        }
+    </script>
+</body>
+
+</html>

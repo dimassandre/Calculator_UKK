@@ -1,0 +1,212 @@
+/* Styling Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background-color: black;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card Styling */
+.card {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    max-width: 400px;
+    margin: auto;
+    max-width: 400px;
+    width: 100%;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #3d3d3d;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+
+/* Form Styling */
+form {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="number"] {
+    width: calc(100% - 30px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="number"]:focus {
+    border-color: #e68a00;
+    box-shadow: 0 0 5px rgba(204, 176, 51, 0.5);
+}
+
+.selects {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.select-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+    background: white;
+}
+
+select:focus {
+    border-color: #e68a00;
+    box-shadow: 0 0 5px rgba(204, 176, 51, 0.5);
+}
+
+button {
+    background-color:#e68a00;
+    color: white;
+    padding: 14px;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #e68a00;
+    color: black;
+}
+
+
+/* Styling untuk input hasil konversi */
+#result {
+    width: calc(100% - 20px);
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    margin-top: 5px;
+    outline: none;
+}
+
+
+  /* Sidebar Styling */
+  #menu-btn {
+    position: fixed;
+    top: 10px;    /* Pastikan tombol berada 10px dari atas */
+    left: 10px;   /* Pastikan tombol berada 10px dari kiri */
+    background: #000;   /* Background hitam */
+    color: white;
+    border: none;
+    padding: 8px 12px;   /* Padding kecil */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;      /* Ukuran font lebih kecil */
+    z-index: 1000;        /* Agar tombol tetap di atas konten lain */
+    width: auto;          /* Lebar otomatis sesuai konten */
+    margin: 0;            /* Pastikan tidak ada margin yang menyebabkan pergeseran */
+    font-weight: 700;
+}
+
+/* Sidebar Styling */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #222;    /* Warna latar belakang sidebar */
+    padding-top: 60px;    /* Padding di atas untuk memberi ruang pada tombol menu */
+    transition: 0.3s ease-in-out; /* Animasi transisi untuk membuka dan menutup sidebar */
+    box-shadow: 2px 0 10px rgba(255, 255, 255, 0.1); /* Efek bayangan */
+    overflow-y: auto;     /* Mengaktifkan scroll jika isi terlalu panjang */
+}
+/* Sidebar styling untuk ikon */
+#sidebar a i {
+    margin-right: 10px;  /* Memberikan jarak antara ikon dan teks */
+}
+
+/* Menandai elemen aktif di sidebar */
+#sidebar a.active {
+    background: #333;  /* Menambahkan warna latar belakang saat aktif */
+    color: #e68a00;     /* Warna teks saat aktif */
+}
+
+/* Gaya umum untuk link sidebar */
+#sidebar a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* Menambahkan efek hover */
+#sidebar a:hover {
+    background: #444;
+}
+
+/* Sidebar yang terbuka */
+.sidebar-open {
+    left: 0 !important;  /* Posisi sidebar saat dibuka */
+}
+
+/* Menambahkan background hitam ke sidebar jika diperlukan */
+#sidebar {
+    background-color: black; /* Pastikan sidebar memiliki latar belakang hitam */
+}
