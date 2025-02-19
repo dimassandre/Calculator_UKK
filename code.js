@@ -52,7 +52,7 @@ function calculate_percentage() {
     isPercentage = true; // Tandai bahwa angka ini persen
 }
 
-// update
+//
 
 function set_operator(operator) {
     last_operator = operator;
